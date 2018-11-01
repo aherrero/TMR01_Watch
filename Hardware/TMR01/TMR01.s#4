@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
@@ -4201,6 +4201,7 @@ Alternate pin configuration
 <sheets>
 <sheet>
 <plain>
+<text x="167.64" y="11.43" size="2.54" layer="94">Alejandro Herrero</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -4761,9 +4762,9 @@ Alternate pin configuration
 <label x="231.14" y="106.68" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R8" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="121.92" x2="20.32" y2="121.92" width="0.1524" layer="91"/>
-<label x="20.32" y="121.92" size="1.778" layer="95"/>
+<pinref part="R4" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="152.4" x2="20.32" y2="152.4" width="0.1524" layer="91"/>
+<label x="20.32" y="152.4" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D7" class="0">
@@ -4773,9 +4774,9 @@ Alternate pin configuration
 <label x="231.14" y="109.22" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R7" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="129.54" x2="20.32" y2="129.54" width="0.1524" layer="91"/>
-<label x="20.32" y="129.54" size="1.778" layer="95"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="144.78" x2="20.32" y2="144.78" width="0.1524" layer="91"/>
+<label x="20.32" y="144.78" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="MISO" class="0">
@@ -4824,9 +4825,9 @@ Alternate pin configuration
 <label x="231.14" y="127" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R1" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="175.26" x2="20.32" y2="175.26" width="0.1524" layer="91"/>
-<label x="20.32" y="175.26" size="1.778" layer="95"/>
+<pinref part="R11" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="99.06" x2="20.32" y2="99.06" width="0.1524" layer="91"/>
+<label x="20.32" y="99.06" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D2" class="0">
@@ -4836,9 +4837,9 @@ Alternate pin configuration
 <label x="231.14" y="124.46" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="167.64" x2="20.32" y2="167.64" width="0.1524" layer="91"/>
-<label x="20.32" y="167.64" size="1.778" layer="95"/>
+<pinref part="R10" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="106.68" x2="20.32" y2="106.68" width="0.1524" layer="91"/>
+<label x="20.32" y="106.68" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D3" class="0">
@@ -4848,9 +4849,9 @@ Alternate pin configuration
 <label x="231.14" y="121.92" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="160.02" x2="20.32" y2="160.02" width="0.1524" layer="91"/>
-<label x="20.32" y="160.02" size="1.778" layer="95"/>
+<pinref part="R9" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="114.3" x2="20.32" y2="114.3" width="0.1524" layer="91"/>
+<label x="20.32" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D4" class="0">
@@ -4860,9 +4861,9 @@ Alternate pin configuration
 <label x="231.14" y="119.38" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R4" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="152.4" x2="20.32" y2="152.4" width="0.1524" layer="91"/>
-<label x="20.32" y="152.4" size="1.778" layer="95"/>
+<pinref part="R8" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="121.92" x2="20.32" y2="121.92" width="0.1524" layer="91"/>
+<label x="20.32" y="121.92" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D5" class="0">
@@ -4872,9 +4873,9 @@ Alternate pin configuration
 <label x="231.14" y="116.84" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="144.78" x2="20.32" y2="144.78" width="0.1524" layer="91"/>
-<label x="20.32" y="144.78" size="1.778" layer="95"/>
+<pinref part="R7" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="129.54" x2="20.32" y2="129.54" width="0.1524" layer="91"/>
+<label x="20.32" y="129.54" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D6" class="0">
@@ -4957,9 +4958,9 @@ Alternate pin configuration
 <label x="231.14" y="149.86" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R11" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="99.06" x2="20.32" y2="99.06" width="0.1524" layer="91"/>
-<label x="20.32" y="99.06" size="1.778" layer="95"/>
+<pinref part="R1" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="175.26" x2="20.32" y2="175.26" width="0.1524" layer="91"/>
+<label x="20.32" y="175.26" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D10" class="0">
@@ -4969,9 +4970,9 @@ Alternate pin configuration
 <label x="231.14" y="152.4" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R10" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="106.68" x2="20.32" y2="106.68" width="0.1524" layer="91"/>
-<label x="20.32" y="106.68" size="1.778" layer="95"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="167.64" x2="20.32" y2="167.64" width="0.1524" layer="91"/>
+<label x="20.32" y="167.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D9" class="0">
@@ -4981,9 +4982,9 @@ Alternate pin configuration
 <label x="231.14" y="154.94" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="R9" gate="G$1" pin="2"/>
-<wire x1="25.4" y1="114.3" x2="20.32" y2="114.3" width="0.1524" layer="91"/>
-<label x="20.32" y="114.3" size="1.778" layer="95"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="25.4" y1="160.02" x2="20.32" y2="160.02" width="0.1524" layer="91"/>
+<label x="20.32" y="160.02" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

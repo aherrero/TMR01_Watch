@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
@@ -2929,64 +2929,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 </deviceset>
 </devicesets>
 </library>
-<library name="Perfect_0402">
-<packages>
-<package name="0402">
-<description>0402 (1005 Metric)  
-
-Nick Garner - TeleSense</description>
-<wire x1="-0.254" y1="0.219" x2="0.27" y2="0.219" width="0.1524" layer="51"/>
-<wire x1="0.271" y1="-0.229" x2="-0.26" y2="-0.229" width="0.1524" layer="51"/>
-<wire x1="-1" y1="0.483" x2="1" y2="0.483" width="0.0508" layer="39"/>
-<wire x1="1" y1="0.483" x2="1" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="1" y1="-0.483" x2="-1" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="-1" y1="-0.483" x2="-1" y2="0.483" width="0.0508" layer="39"/>
-<smd name="1" x="-0.5" y="0" dx="0.6" dy="0.7" layer="1"/>
-<smd name="2" x="0.5" y="0" dx="0.6" dy="0.7" layer="1"/>
-<text x="-0.635" y="0.535" size="0.8128" layer="25" ratio="10">&gt;NAME</text>
-<text x="-0.635" y="-1.405" size="0.8128" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
-<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-</package>
-</packages>
-<symbols>
-<symbol name="CAP">
-<description>0402 (1005 Metric)  
-
-Nick Garner - TeleSense</description>
-<wire x1="0" y1="5.08" x2="0" y2="4.572" width="0.1524" layer="94"/>
-<wire x1="0" y1="2.54" x2="0" y2="3.048" width="0.1524" layer="94"/>
-<text x="1.524" y="5.461" size="1.778" layer="95">&gt;NAME</text>
-<text x="1.524" y="0.381" size="1.778" layer="96">&gt;VALUE</text>
-<rectangle x1="-2.032" y1="3.048" x2="2.032" y2="3.556" layer="94"/>
-<rectangle x1="-2.032" y1="4.064" x2="2.032" y2="4.572" layer="94"/>
-<pin name="1" x="0" y="7.62" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
-<pin name="2" x="0" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="CAP_0402" prefix="C" uservalue="yes">
-<description>0402 (1005 Metric)  
-
-Nick Garner - TeleSense</description>
-<gates>
-<gate name="G$1" symbol="CAP" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="0402">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-Connectors">
 <description>&lt;h3&gt;SparkFun Connectors&lt;/h3&gt;
 This library contains electrically-functional connectors. 
@@ -4192,15 +4134,13 @@ Alternate pin configuration
 <part name="GND5" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="SUPPLY4" library="SparkFun-PowerSymbols" deviceset="VCC" device=""/>
 <part name="SUPPLY5" library="SparkFun-PowerSymbols" deviceset="VCC" device=""/>
-<part name="R15" library="SparkFun-Resistors" deviceset="RESISTOR" device="0402" value="10k"/>
-<part name="C4" library="Perfect_0402" deviceset="CAP_0402" device="" value="22pF"/>
-<part name="GND6" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="J1" library="SparkFun-Connectors" deviceset="CONN_06" device="SMD-FEMALE-V2"/>
 <part name="J2" library="SparkFun-Connectors" deviceset="CONN_06" device="SMD-FEMALE-V2"/>
 </parts>
 <sheets>
 <sheet>
 <plain>
+<text x="167.64" y="11.43" size="2.54" layer="94">Alejandro Herrero</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -4372,17 +4312,6 @@ Alternate pin configuration
 </instance>
 <instance part="SUPPLY5" gate="G$1" x="226.06" y="81.28">
 <attribute name="VALUE" x="226.06" y="84.074" size="1.778" layer="96" align="bottom-center"/>
-</instance>
-<instance part="R15" gate="G$1" x="180.34" y="55.88">
-<attribute name="NAME" x="180.34" y="57.404" size="1.778" layer="95" font="vector" align="bottom-center"/>
-<attribute name="VALUE" x="180.34" y="54.356" size="1.778" layer="96" font="vector" align="top-center"/>
-</instance>
-<instance part="C4" gate="G$1" x="170.18" y="45.72">
-<attribute name="NAME" x="171.704" y="51.181" size="1.778" layer="95"/>
-<attribute name="VALUE" x="171.704" y="46.101" size="1.778" layer="96"/>
-</instance>
-<instance part="GND6" gate="1" x="170.18" y="40.64">
-<attribute name="VALUE" x="170.18" y="40.386" size="1.778" layer="96" align="top-center"/>
 </instance>
 <instance part="J1" gate="G$1" x="81.28" y="154.94">
 <attribute name="VALUE" x="76.2" y="145.034" size="1.778" layer="96" font="vector"/>
@@ -4584,11 +4513,6 @@ Alternate pin configuration
 <wire x1="226.06" y1="71.12" x2="226.06" y2="68.58" width="0.1524" layer="91"/>
 <junction x="226.06" y="68.58"/>
 </segment>
-<segment>
-<pinref part="GND6" gate="1" pin="GND"/>
-<pinref part="C4" gate="G$1" pin="2"/>
-<wire x1="170.18" y1="43.18" x2="170.18" y2="45.72" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="VCC" class="0">
 <segment>
@@ -4632,14 +4556,6 @@ Alternate pin configuration
 <pinref part="U2" gate="G$1" pin="VCC"/>
 <wire x1="190.5" y1="76.2" x2="185.42" y2="76.2" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="76.2" x2="185.42" y2="81.28" width="0.1524" layer="91"/>
-<pinref part="R15" gate="G$1" pin="1"/>
-<wire x1="175.26" y1="55.88" x2="170.18" y2="55.88" width="0.1524" layer="91"/>
-<wire x1="170.18" y1="55.88" x2="170.18" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="170.18" y1="76.2" x2="185.42" y2="76.2" width="0.1524" layer="91"/>
-<junction x="185.42" y="76.2"/>
-<pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="170.18" y1="53.34" x2="170.18" y2="55.88" width="0.1524" layer="91"/>
-<junction x="170.18" y="55.88"/>
 </segment>
 <segment>
 <pinref part="SUPPLY5" gate="G$1" pin="VCC"/>
@@ -4926,12 +4842,6 @@ Alternate pin configuration
 </segment>
 </net>
 <net name="SQW" class="0">
-<segment>
-<pinref part="R15" gate="G$1" pin="2"/>
-<pinref part="U2" gate="G$1" pin="INT/SQW"/>
-<wire x1="185.42" y1="55.88" x2="190.5" y2="55.88" width="0.1524" layer="91"/>
-<label x="185.42" y="55.88" size="1.778" layer="95"/>
-</segment>
 <segment>
 <pinref part="J2" gate="G$1" pin="1"/>
 <wire x1="86.36" y1="127" x2="96.52" y2="127" width="0.1524" layer="91"/>

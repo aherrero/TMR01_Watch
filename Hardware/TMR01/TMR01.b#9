@@ -9,7 +9,7 @@
 <grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.005" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -23,29 +23,29 @@
 <layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
-<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
-<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
-<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
-<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
-<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
-<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="yes"/>
-<layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="yes"/>
-<layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="yes"/>
-<layer number="42" name="bRestrict" color="1" fill="10" visible="no" active="yes"/>
-<layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
-<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="yes" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="yes" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="yes" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="yes" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="yes"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
@@ -583,28 +583,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </package>
 </packages>
 </library>
-<library name="Perfect_0402">
-<packages>
-<package name="0402">
-<description>0402 (1005 Metric)  
-
-Nick Garner - TeleSense</description>
-<wire x1="-0.254" y1="0.219" x2="0.27" y2="0.219" width="0.1524" layer="51"/>
-<wire x1="0.271" y1="-0.229" x2="-0.26" y2="-0.229" width="0.1524" layer="51"/>
-<wire x1="-1" y1="0.483" x2="1" y2="0.483" width="0.0508" layer="39"/>
-<wire x1="1" y1="0.483" x2="1" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="1" y1="-0.483" x2="-1" y2="-0.483" width="0.0508" layer="39"/>
-<wire x1="-1" y1="-0.483" x2="-1" y2="0.483" width="0.0508" layer="39"/>
-<smd name="1" x="-0.5" y="0" dx="0.6" dy="0.7" layer="1"/>
-<smd name="2" x="0.5" y="0" dx="0.6" dy="0.7" layer="1"/>
-<text x="-0.635" y="0.535" size="0.8128" layer="25" ratio="10">&gt;NAME</text>
-<text x="-0.635" y="-1.405" size="0.8128" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-0.554" y1="-0.3048" x2="-0.254" y2="0.2951" layer="51"/>
-<rectangle x1="0.2588" y1="-0.3048" x2="0.5588" y2="0.2951" layer="51"/>
-<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
-</package>
-</packages>
-</library>
 <library name="SparkFun-Connectors">
 <description>&lt;h3&gt;SparkFun Connectors&lt;/h3&gt;
 This library contains electrically-functional connectors. 
@@ -1003,10 +981,6 @@ design rules under a new name.</description>
 <attribute name="PROD_ID" value=" " x="35.56" y="34.29" size="1.778" layer="28" rot="MR180" display="off"/>
 <attribute name="VALUE" x="35.56" y="35.052" size="0.6096" layer="28" font="vector" ratio="20" rot="MR180" align="top-center"/>
 </element>
-<element name="C4" library="Perfect_0402" package="0402" value="22pF" x="21.59" y="21.59" rot="MR90">
-<attribute name="NAME" x="20.855" y="23.495" size="0.8128" layer="26" ratio="10" rot="MR90"/>
-<attribute name="VALUE" x="20.185" y="20.955" size="0.8128" layer="28" ratio="10" rot="MR90"/>
-</element>
 <element name="J1" library="SparkFun-Connectors" package="1X06-SMD-FEMALE" value="" x="16.51" y="27.94" rot="MR270">
 <attribute name="NAME" x="19.812" y="29.464" size="0.6096" layer="26" font="vector" ratio="20" rot="MR270"/>
 <attribute name="PROD_ID" value="CONN-09668" x="16.51" y="27.94" size="1.778" layer="28" rot="MR270" display="off"/>
@@ -1093,7 +1067,6 @@ design rules under a new name.</description>
 <contactref element="U2" pad="8"/>
 <contactref element="U2" pad="7"/>
 <contactref element="U2" pad="2"/>
-<contactref element="C4" pad="2"/>
 <contactref element="J1" pad="6"/>
 <contactref element="J1" pad="5"/>
 <wire x1="20.955" y1="16.905" x2="22.225" y2="16.905" width="0.1524" layer="1"/>
@@ -1147,11 +1120,10 @@ design rules under a new name.</description>
 <wire x1="35.94890625" y1="43.56890625" x2="33.92" y2="40.64" width="0" layer="19" extent="1-16"/>
 <wire x1="13.085" y1="34.29" x2="11.041090625" y2="37.21890625" width="0" layer="19" extent="1-16"/>
 <wire x1="13.085" y1="31.75" x2="13.085" y2="34.29" width="0" layer="19" extent="16-16"/>
-<wire x1="33.02" y1="31.17" x2="11.041090625" y2="38.981090625" width="0" layer="19" extent="1-16"/>
-<wire x1="21.59" y1="22.09" x2="17.00218125" y2="12.7" width="0" layer="19" extent="1-16"/>
-<wire x1="20.955" y1="16.905" x2="21.59" y2="22.09" width="0" layer="19" extent="1-16"/>
+<wire x1="20.955" y1="16.905" x2="17.00218125" y2="12.7" width="0" layer="19" extent="1-1"/>
 <wire x1="30.9626" y1="34.69" x2="33.92" y2="40.64" width="0" layer="19" extent="1-16"/>
-<wire x1="30.5816" y1="27.8384" x2="30.9626" y2="34.69" width="0" layer="19" extent="1-1"/>
+<wire x1="33.02" y1="31.17" x2="30.9626" y2="34.69" width="0" layer="19" extent="1-16"/>
+<wire x1="30.5816" y1="27.8384" x2="33.02" y2="31.17" width="0" layer="19" extent="1-16"/>
 <wire x1="26.67" y1="27.94" x2="25.5016" y2="27.8384" width="0" layer="19" extent="1-16"/>
 <wire x1="22.3774" y1="33.89" x2="25.4" y2="27.94" width="0" layer="19" extent="1-1"/>
 <wire x1="22.3774" y1="35.49" x2="22.3774" y2="33.89" width="0" layer="19" extent="1-1"/>
@@ -1169,9 +1141,8 @@ design rules under a new name.</description>
 <contactref element="S1" pad="1"/>
 <contactref element="U2" pad="4"/>
 <contactref element="U2" pad="16"/>
-<contactref element="R15" pad="1"/>
-<contactref element="C4" pad="1"/>
 <contactref element="J1" pad="4"/>
+<contactref element="R15" pad="1"/>
 <wire x1="28.194" y1="39.116" x2="32.12" y2="40.64" width="0" layer="19" extent="16-16"/>
 <wire x1="25.019" y1="39.116" x2="28.194" y2="39.116" width="0" layer="19" extent="16-16"/>
 <wire x1="24.71" y1="43.18" x2="25.019" y2="39.116" width="0" layer="19" extent="16-16"/>
@@ -1184,7 +1155,6 @@ design rules under a new name.</description>
 <wire x1="27.305" y1="16.905" x2="28.575" y2="26.275" width="0" layer="19" extent="1-1"/>
 <wire x1="28.321" y1="16.764" x2="27.305" y2="16.905" width="0" layer="19" extent="1-16"/>
 <wire x1="25.146" y1="16.764" x2="27.305" y2="16.905" width="0" layer="19" extent="1-16"/>
-<wire x1="21.59" y1="21.09" x2="25.146" y2="16.764" width="0" layer="19" extent="16-16"/>
 <wire x1="13.085" y1="29.21" x2="22.3774" y2="33.09" width="0" layer="19" extent="1-16"/>
 </signal>
 <signal name="RST">

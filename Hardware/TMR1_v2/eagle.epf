@@ -7,7 +7,6 @@ Desktop="Desktop"
 [Globals]
 AutoSaveProject=1
 UsedLibrary="/home/aherrero/EAGLE/libraries/Perfect_0402.lbr"
-UsedLibrary="/home/aherrero/EAGLE/libraries/_hhn_MCP7941X.lbr"
 UsedLibrary="/home/aherrero/EAGLE/libraries/SparkFun-Eagle-Libraries/LilyPad-Wearables.lbr"
 UsedLibrary="/home/aherrero/EAGLE/libraries/SparkFun-Eagle-Libraries/SparkFun-Aesthetics.lbr"
 UsedLibrary="/home/aherrero/EAGLE/libraries/SparkFun-Eagle-Libraries/SparkFun-Batteries.lbr"
@@ -39,7 +38,6 @@ UsedLibrary="/home/aherrero/EAGLE/libraries/SparkFun-Eagle-Libraries/SparkFun-Re
 UsedLibrary="/home/aherrero/EAGLE/libraries/SparkFun-Eagle-Libraries/SparkFun-Sensors.lbr"
 UsedLibrary="/home/aherrero/EAGLE/libraries/SparkFun-Eagle-Libraries/SparkFun-Switches.lbr"
 UsedLibrary="/home/aherrero/EAGLE/libraries/SparkFun-Eagle-Libraries/User-Submitted.lbr"
-UsedLibrary="/home/aherrero/EAGLE/libraries/cmonr/Eagle-Libraries/standardparts.lbr"
 
 [Win_1]
 Type="Control Panel"

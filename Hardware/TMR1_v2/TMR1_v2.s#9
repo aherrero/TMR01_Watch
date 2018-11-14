@@ -3467,7 +3467,6 @@ Used as a test point connection for pogo pins or other debugging tools.
 <part name="R13" library="SparkFun-Resistors" deviceset="RESISTOR" device="0402" value="10k"/>
 <part name="C3" library="SparkFun-Capacitors" deviceset="10UF" device="-0805-10V-10%" value="10uF"/>
 <part name="R14" library="SparkFun-Resistors" deviceset="RESISTOR" device="0402" value="10k"/>
-<part name="S1" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-5.2MM"/>
 <part name="SUPPLY3" library="SparkFun-PowerSymbols" deviceset="VCC" device=""/>
 <part name="GND4" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="U2" library="_hhn_MCP7941X" deviceset="MCP7941*?" device="/SN" technology="0I"/>
@@ -3490,6 +3489,7 @@ Used as a test point connection for pogo pins or other debugging tools.
 <part name="TP8" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4"/>
 <part name="TP9" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4"/>
 <part name="TP10" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4"/>
+<part name="S2" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-RIGHT-ANGLE"/>
 </parts>
 <sheets>
 <sheet>
@@ -3639,10 +3639,6 @@ Used as a test point connection for pogo pins or other debugging tools.
 <attribute name="NAME" x="92.964" y="96.52" size="1.778" layer="95" font="vector" rot="R270" align="bottom-center"/>
 <attribute name="VALUE" x="89.916" y="96.52" size="1.778" layer="96" font="vector" rot="R270" align="top-center"/>
 </instance>
-<instance part="S1" gate="G$1" x="88.9" y="106.68">
-<attribute name="NAME" x="88.9" y="108.204" size="1.778" layer="95" font="vector" align="bottom-center"/>
-<attribute name="VALUE" x="88.9" y="106.172" size="1.778" layer="96" font="vector" align="top-center"/>
-</instance>
 <instance part="SUPPLY3" gate="G$1" x="76.2" y="111.76">
 <attribute name="VALUE" x="76.2" y="114.554" size="1.778" layer="96" align="bottom-center"/>
 </instance>
@@ -3724,6 +3720,9 @@ Used as a test point connection for pogo pins or other debugging tools.
 <instance part="TP10" gate="G$1" x="83.82" y="132.08" rot="R180">
 <attribute name="NAME" x="86.36" y="129.54" size="1.778" layer="95" font="vector" rot="R180"/>
 <attribute name="VALUE" x="86.36" y="134.62" size="1.778" layer="96" font="vector" rot="R180"/>
+</instance>
+<instance part="S2" gate="G$1" x="88.9" y="106.68">
+<attribute name="NAME" x="88.9" y="108.204" size="1.778" layer="95" font="vector" align="bottom-center"/>
 </instance>
 </instances>
 <busses>
@@ -3926,9 +3925,9 @@ Used as a test point connection for pogo pins or other debugging tools.
 </segment>
 <segment>
 <pinref part="SUPPLY3" gate="G$1" pin="VCC"/>
-<pinref part="S1" gate="G$1" pin="1"/>
 <wire x1="76.2" y1="111.76" x2="76.2" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="76.2" y1="106.68" x2="83.82" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="S2" gate="G$1" pin="1"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="VCC"/>
@@ -4162,7 +4161,6 @@ Used as a test point connection for pogo pins or other debugging tools.
 </net>
 <net name="PUSH" class="0">
 <segment>
-<pinref part="S1" gate="G$1" pin="2"/>
 <wire x1="93.98" y1="106.68" x2="99.06" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="106.68" x2="106.68" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="106.68" y1="106.68" x2="106.68" y2="111.76" width="0.1524" layer="91"/>
@@ -4172,6 +4170,7 @@ Used as a test point connection for pogo pins or other debugging tools.
 <wire x1="91.44" y1="101.6" x2="99.06" y2="101.6" width="0.1524" layer="91"/>
 <wire x1="99.06" y1="101.6" x2="99.06" y2="106.68" width="0.1524" layer="91"/>
 <junction x="99.06" y="106.68"/>
+<pinref part="S2" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="U1" gate="U1" pin="PD2(INT0)"/>

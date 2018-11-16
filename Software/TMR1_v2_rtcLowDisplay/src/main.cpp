@@ -24,6 +24,11 @@ int setTimeState = 0;
 int setHour = 0;
 int setMinutes = 0;
 
+int countSec = 0;
+int countSec2 = 0;
+int countSec3 = 0;
+int countSec4 = 0;
+
 static uint8_t secs;
 
 // 74HC595 Control
@@ -89,7 +94,11 @@ int displayThrough74HC595(int h1, int h2, int m1, int m2)
         B10000010,  //  6
         B11111000,  //  7
         B10000000,  //  8
-        B10011000  //  9
+        B10011000,  //  9
+        B10001001,  //H
+        B11000000,  //O
+        B11000111,  //L
+        B10001000   //A
     };
 
     // 74HC595
@@ -175,11 +184,42 @@ void setup()
     //MCP7940.adjust();   // Adjust time with the compilation time
     MCP7940.adjust(DateTime(2018,11,7,21,39,10));   //Set a specific time
 
+    // Optional msg hello
+    // displayThrough74HC595(10, 11, 12, 13);
+
     delay(2000);
 }
 
 void loop()
 {
+    // [Optional counter instead of hh:mm]
+    countSec = countSec + 1;
+    if(countSec >= 10)
+    {
+      countSec2 = countSec2 + 1;
+      countSec = 0;
+    }
+
+    if(countSec2 >= 10)
+    {
+      countSec3 = countSec3 + 1;
+      countSec2 = 0;
+    }
+
+    if(countSec3 >= 10)
+    {
+      countSec4 = countSec4 + 1;
+      countSec3 = 0;
+    }
+
+    if(countSec4 >= 10)
+    {
+      countSec4 = 0;
+      countSec3 = 0;
+      countSec2 = 0;
+      countSec = 0;
+    }
+
     if(setTimeState < 2)
     {
         if(digitalRead(BUTTON_PIN_ENTER) == HIGH)
@@ -226,6 +266,9 @@ void loop()
             digitalWrite(LED_BUILTIN, LOW);
 
             displayThrough74HC595(firstDigit(now.hour()), lastDigit(now.hour()), firstDigit(now.minute()), lastDigit(now.minute()));
+
+            //  displayThrough74HC595(countSec4, countSec3, countSec2, countSec);// Counter instead of hh:mm
+
         }
     }
 

@@ -169,11 +169,11 @@ void loop()
             // Display
             // if hour = minutes
             // only the minutes blinking
-            clockLeds.DisplayTimeLed(time_now.hour());
+            clockLeds.DisplayHourLed(time_now.hour());
             for(int i = 0; i < 3; i++)
             {
                 // blinking 1s, 3 times
-                clockLeds.DisplayTimeLedBlinking(time_now.minute(), 1000);
+                clockLeds.DisplayHourBlinking(time_now.minute(), 1000);
 
                 // If the button continue pressed (after showing time at least once (2s after)
                 if(digitalRead(BUTTON_PIN) == HIGH)
@@ -194,7 +194,7 @@ void loop()
             // Get the hour
             time_now = MCP7940.now();
             //Normally minutes blink each 1 sec. IN setting time, the hours blink each 500ms
-            clockLeds.DisplayTimeLedBlinking(time_now.hour(), 500);
+            clockLeds.DisplayHourBlinking(time_now.hour(), 500);
 
             // Read button status and long/short press
             resultLongPress = calculateLongShortButton();
@@ -209,6 +209,8 @@ void loop()
             {
                 // Set the minutes
                 BORA_WATCH_MODE = WATCH_MODE_SET_MIN;
+                clockLeds.SequenceLeds();
+                delay(500);
             }
 
             calculateLongShortButton(); //Restart variables once unpressed
@@ -223,22 +225,26 @@ void loop()
             // Get the hour
             time_now = MCP7940.now();
             //Normally minutes blink each 1 sec. IN setting time, the minutes blink each 500ms
-            clockLeds.DisplayTimeLedBlinking(time_now.hour(), 250);
+            clockLeds.DisplayMinutesBlinking(time_now.minute(), 250);
 
             // Read button status and long/short press
             resultLongPress = calculateLongShortButton();
             if(resultLongPress == SHORT_PRESSED)
             {
+                // +1 if we want to set the minutes one per once
+                // +5 if we set each 5 minutes and display each 5 minutes
                 DateTime newtime(time_now.year(),time_now.month(),time_now.day(),
-                                time_now.hour() + 1,time_now.minute(),time_now.second());
+                                time_now.hour(),time_now.minute() + 1,time_now.second());
 
                 MCP7940.adjust(newtime);   //Set a specific time
             }
             else if(resultLongPress == LONG_PRESSED)
             {
                 // Come back show time
-                clockLeds.SequenceLeds();
                 BORA_WATCH_MODE = WATCH_MODE_TIME;
+                clockLeds.SequenceLeds();
+                clockLeds.SequenceLeds();
+                delay(500);
             }
 
             calculateLongShortButton(); //Restart variables once unpressed

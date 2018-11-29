@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
@@ -5862,6 +5862,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="91.44" y="142.24" size="1.778" layer="95"/>
 <pinref part="TP7" gate="G$1" pin="1"/>
 </segment>
+<segment>
+<wire x1="22.86" y1="144.78" x2="15.24" y2="144.78" width="0.1524" layer="91"/>
+<label x="15.24" y="144.78" size="1.778" layer="95"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="SCK" class="0">
 <segment>
@@ -5873,6 +5878,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="83.82" y1="137.16" x2="93.98" y2="137.16" width="0.1524" layer="91"/>
 <label x="91.44" y="137.16" size="1.778" layer="95"/>
 <pinref part="TP9" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<wire x1="22.86" y1="152.4" x2="15.24" y2="152.4" width="0.1524" layer="91"/>
+<label x="15.24" y="152.4" size="1.778" layer="95"/>
+<pinref part="R4" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="D1" class="0">
@@ -5911,28 +5921,11 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <label x="228.6" y="154.94" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="D4" class="0">
-<segment>
-<wire x1="22.86" y1="152.4" x2="15.24" y2="152.4" width="0.1524" layer="91"/>
-<label x="15.24" y="152.4" size="1.778" layer="95"/>
-<pinref part="R4" gate="G$1" pin="1"/>
-</segment>
+<net name="D4_NA" class="0">
 <segment>
 <pinref part="U1" gate="U1" pin="ADC7"/>
 <wire x1="223.52" y1="137.16" x2="231.14" y2="137.16" width="0.1524" layer="91"/>
 <label x="228.6" y="137.16" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="D5" class="0">
-<segment>
-<wire x1="22.86" y1="144.78" x2="15.24" y2="144.78" width="0.1524" layer="91"/>
-<label x="15.24" y="144.78" size="1.778" layer="95"/>
-<pinref part="R5" gate="G$1" pin="1"/>
-</segment>
-<segment>
-<pinref part="U1" gate="U1" pin="ADC6"/>
-<wire x1="223.52" y1="139.7" x2="231.14" y2="139.7" width="0.1524" layer="91"/>
-<label x="228.6" y="139.7" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="D6" class="0">
@@ -6070,6 +6063,13 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <pinref part="U1" gate="U1" pin="PC5(ADC5/SCL)"/>
 <wire x1="223.52" y1="142.24" x2="231.14" y2="142.24" width="0.1524" layer="91"/>
 <label x="228.6" y="142.24" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="D5_NA" class="0">
+<segment>
+<pinref part="U1" gate="U1" pin="ADC6"/>
+<wire x1="223.52" y1="139.7" x2="231.14" y2="139.7" width="0.1524" layer="91"/>
+<label x="228.6" y="139.7" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>

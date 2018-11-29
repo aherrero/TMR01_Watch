@@ -8,23 +8,23 @@
 #include "ClockLeds.h"
 
 // Constant
-const int BUTTON_PIN = 2;    // Button For interruption (PD2, INT0)
+const int BUTTON_PIN = 2;    // Button For interruption (PD2, INT0, atmega 32)
 
-const int LED12_PIN = A3;   //PC3
-const int LED1_PIN  = A2;   //PC2
-const int LED2_PIN  = A1;   //PC1
-const int LED3_PIN  = A0;   //PC0
+const int LED12_PIN = A3;   //PC3, atmega 26
+const int LED1_PIN  = A2;   //PC2, atmega 25
+const int LED2_PIN  = A1;   //PC1, atmega 24
+const int LED3_PIN  = A0;   //PC0, atmega 23
 
-const int LED4_PIN  = 12;   // Internally to A7. But change to MISO? -> PB4
-const int LED5_PIN  = 10;   // Internally to A6. But change to SS? -> PB2
+const int LED4_PIN  = 13;   // Originally to A7 (D4_NA). But change to SCK -> PB5 (Arduino13). Atmega 17
+const int LED5_PIN  = 12;   // Originally to A6 (D5_NA). But change to MISO -> PB4. Atmega 16
 
-const int LED6_PIN  = 9;    //PB1
+const int LED6_PIN  = 9;    //PB1, atmega 13
 
-const int LED7_PIN  = 7;    //PD7
-const int LED8_PIN  = 6;    //PD8
-const int LED9_PIN  = 5;    //PD5
-const int LED10_PIN = 4;    //PD4
-const int LED11_PIN = 3;    //PD3
+const int LED7_PIN  = 7;    //PD7, atmega 11
+const int LED8_PIN  = 6;    //PD6, atmega 10
+const int LED9_PIN  = 5;    //PD5, atmega 9
+const int LED10_PIN = 4;    //PD4, atmega 2
+const int LED11_PIN = 3;    //PD3, atmega 1
 
 int ALL_LEDS_PIN[] = {LED12_PIN, LED1_PIN, LED2_PIN,
                         LED3_PIN, LED4_PIN, LED5_PIN,
@@ -39,7 +39,7 @@ const int WATCH_MODE_SET_MIN = 2;
 MCP7940_Class MCP7940;
 ClockLeds clockLeds(ALL_LEDS_PIN);
 
-int BORA_WATCH_MODE = 1;
+int BORA_WATCH_MODE = WATCH_MODE_SET_HOUR;
 
 DateTime time_now;
 
@@ -138,8 +138,10 @@ void setup()
 
     //MCP7940.adjust();   // Adjust time with the compilation time
     MCP7940.adjust(DateTime(2000,1,1,0,0,0));   //Set a specific time
+    delay(1000);
 
-    delay(2000);
+    // Good configuration
+    clockLeds.SequenceLeds(20);
 }
 
 void loop()
@@ -210,7 +212,7 @@ void loop()
                 // Set the minutes
                 BORA_WATCH_MODE = WATCH_MODE_SET_MIN;
                 clockLeds.SequenceLeds();
-                delay(500);
+                delay(100);
             }
 
             calculateLongShortButton(); //Restart variables once unpressed
@@ -242,13 +244,13 @@ void loop()
             {
                 // Come back show time
                 BORA_WATCH_MODE = WATCH_MODE_TIME;
-                clockLeds.SequenceLeds();
-                clockLeds.SequenceLeds();
-                delay(500);
+                clockLeds.SequenceLeds(20);
+                clockLeds.SequenceLeds(20);
+                delay(100);
             }
 
             calculateLongShortButton(); //Restart variables once unpressed
 
         break;
-    }
-}
+    }   //end switch
+}   //end loop

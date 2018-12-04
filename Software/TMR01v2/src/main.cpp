@@ -44,11 +44,11 @@ int BORA_WATCH_MODE = WATCH_MODE_SET_HOUR;
 DateTime time_now;
 
 // Button detection long press
-long buttonTimer = 0;
-long longPressTime = 1000;
+long longPressTime = 2000;
 
-boolean buttonActive = false;
-boolean longPressActive = false;
+volatile int buttonPressed = 0;
+unsigned long startMillis = 0;
+unsigned long currentsMillis = 0;
 
 const int SHORT_PRESSED = 1;
 const int LONG_PRESSED = 2;
@@ -61,51 +61,50 @@ const int LONG_PRESSED = 2;
 int calculateLongShortButton()
 {
     int resultLongPress = 0;
+    unsigned long diffMillis = currentsMillis - startMillis;
 
-    if (digitalRead(BUTTON_PIN) == HIGH)
+    if(buttonPressed == 1 && diffMillis < longPressTime)
     {
-        delay(10);
-        if (buttonActive == false)
-        {
-            buttonActive = true;
-            buttonTimer = millis();
-        }
-
-        if ((millis() - buttonTimer > longPressTime) && (longPressActive == false))
-        {
-            // Long while
-            longPressActive = true;
-            resultLongPress = LONG_PRESSED;
-        }
+        // Starting acum
+        currentsMillis = millis();
     }
     else
     {
-        delay(10);
-        if (buttonActive == true)
+        if(diffMillis > 10)
         {
-            if (longPressActive == true)
+            if(diffMillis > longPressTime)
             {
-                // Long after
-                longPressActive = false;
+                resultLongPress = LONG_PRESSED;
             }
             else
             {
-                //Short after
                 resultLongPress = SHORT_PRESSED;
             }
-            buttonActive = false;
         }
+
+        startMillis = millis();
+        currentsMillis = millis();
     }
 
     return resultLongPress;
 }
 
 
-// Function wakeup
+// callback
 void wakeUp()
 {
     // Just a handler for the pin interrupt.
 }
+
+void pin_ISR()
+{
+    if(digitalRead(BUTTON_PIN) == HIGH)
+        buttonPressed = 1;
+    else
+        buttonPressed = 0;
+}
+
+// Setup
 
 void setup()
 {
@@ -142,6 +141,9 @@ void setup()
 
     // Good configuration
     clockLeds.SequenceLeds(20);
+
+    // Attach an interrupt to the ISR vector (long or short press)
+    attachInterrupt(0, pin_ISR, CHANGE);
 }
 
 void loop()
@@ -151,6 +153,10 @@ void loop()
     switch (BORA_WATCH_MODE)
     {
         case WATCH_MODE_TIME:
+            // Disable external pin interrupt for counting time
+            detachInterrupt(0);
+            delay(10);
+
             // Allow wake up pin to trigger interrupt on low.
             attachInterrupt(0, wakeUp, HIGH);
 
@@ -160,6 +166,7 @@ void loop()
 
             // Disable external pin interrupt on wake up pin.
             detachInterrupt(0);
+            delay(10);
 
             // Do something here after wake up until next loop to sleep
 
@@ -175,14 +182,19 @@ void loop()
             for(int i = 0; i < 3; i++)
             {
                 // blinking 1s, 3 times
-                clockLeds.DisplayHourBlinking(time_now.minute(), 1000);
+                clockLeds.DisplayHourBlinking(time_now.minute(), 500);
 
-                // If the button continue pressed (after showing time at least once (2s after)
+                // If the button continue pressed (after showing time at least once (1s after)
                 if(digitalRead(BUTTON_PIN) == HIGH)
                 {
                     // Set the hour
                     BORA_WATCH_MODE = WATCH_MODE_SET_HOUR;
-                    clockLeds.SequenceLeds();
+                    clockLeds.SequenceLeds(40);
+
+                    calculateLongShortButton(); //Restart variables once unpressed
+                    // Attach an interrupt to the ISR vector
+                    attachInterrupt(0, pin_ISR, CHANGE);
+
                     break;  //Break the loop for showing time
                 }
             }
@@ -196,7 +208,7 @@ void loop()
             // Get the hour
             time_now = MCP7940.now();
             //Normally minutes blink each 1 sec. IN setting time, the hours blink each 500ms
-            clockLeds.DisplayHourBlinking(time_now.hour(), 500);
+            clockLeds.DisplayHourBlinking(time_now.hour(), 250);
 
             // Read button status and long/short press
             resultLongPress = calculateLongShortButton();
@@ -211,7 +223,7 @@ void loop()
             {
                 // Set the minutes
                 BORA_WATCH_MODE = WATCH_MODE_SET_MIN;
-                clockLeds.SequenceLeds();
+                clockLeds.SequenceLeds(40);
                 delay(100);
             }
 
@@ -227,7 +239,7 @@ void loop()
             // Get the hour
             time_now = MCP7940.now();
             //Normally minutes blink each 1 sec. IN setting time, the minutes blink each 500ms
-            clockLeds.DisplayMinutesBlinking(time_now.minute(), 250);
+            clockLeds.DisplayMinutesBlinking(time_now.minute(), 125);
 
             // Read button status and long/short press
             resultLongPress = calculateLongShortButton();

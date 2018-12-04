@@ -6,17 +6,17 @@ ClockLeds::ClockLeds(int *ledPins_)
 }
 
 // Timing
-int ClockLeds::DisplayHourLed(int timeToDisplay, int enable)
+int ClockLeds::DisplayHourLed(int timeToDisplay, int enablepin)
 {
     if(timeToDisplay >= 0 && timeToDisplay <= 11)
     {
-        digitalWrite(ledPins[timeToDisplay], enable);
+        digitalWrite(ledPins[timeToDisplay], enablepin);
     }
     else if(timeToDisplay >= 12 && timeToDisplay <= 24)
     {
         // 24 hours format
         timeToDisplay = timeToDisplay - 12;
-        digitalWrite(ledPins[timeToDisplay], enable);
+        digitalWrite(ledPins[timeToDisplay], enablepin);
     }
     else
     {
@@ -26,7 +26,7 @@ int ClockLeds::DisplayHourLed(int timeToDisplay, int enable)
     return 0;
 }
 
-int ClockLeds::DisplayMinutesLed(int timeToDisplay, int enable)
+int ClockLeds::DisplayMinutesLed(int timeToDisplay, int enablepin)
 {
     // int ALL_LEDS_PIN[] = {LED12_PIN, LED1_PIN, LED2_PIN,
     //                         LED3_PIN, LED4_PIN, LED5_PIN,
@@ -35,51 +35,51 @@ int ClockLeds::DisplayMinutesLed(int timeToDisplay, int enable)
 
     if(timeToDisplay >= 0 && timeToDisplay < 5)
     {
-        digitalWrite(ledPins[0], enable);
+        digitalWrite(ledPins[0], enablepin);
     }
     else if(timeToDisplay >= 5 && timeToDisplay < 10)
     {
-        digitalWrite(ledPins[1], enable);
+        digitalWrite(ledPins[1], enablepin);
     }
     else if(timeToDisplay >= 10 && timeToDisplay < 15)
     {
-        digitalWrite(ledPins[2], enable);
+        digitalWrite(ledPins[2], enablepin);
     }
     else if(timeToDisplay >= 15 && timeToDisplay < 20)
     {
-        digitalWrite(ledPins[3], enable);
+        digitalWrite(ledPins[3], enablepin);
     }
     else if(timeToDisplay >= 20 && timeToDisplay < 25)
     {
-        digitalWrite(ledPins[4], enable);
+        digitalWrite(ledPins[4], enablepin);
     }
     else if(timeToDisplay >= 25 && timeToDisplay < 30)
     {
-        digitalWrite(ledPins[5], enable);
+        digitalWrite(ledPins[5], enablepin);
     }
     else if(timeToDisplay >= 30 && timeToDisplay < 35)
     {
-        digitalWrite(ledPins[6], enable);
+        digitalWrite(ledPins[6], enablepin);
     }
     else if(timeToDisplay >= 35 && timeToDisplay < 40)
     {
-        digitalWrite(ledPins[7], enable);
+        digitalWrite(ledPins[7], enablepin);
     }
     else if(timeToDisplay >= 40 && timeToDisplay < 45)
     {
-        digitalWrite(ledPins[8], enable);
+        digitalWrite(ledPins[8], enablepin);
     }
     else if(timeToDisplay >= 45 && timeToDisplay < 50)
     {
-        digitalWrite(ledPins[9], enable);
+        digitalWrite(ledPins[9], enablepin);
     }
     else if(timeToDisplay >= 50 && timeToDisplay < 55)
     {
-        digitalWrite(ledPins[10], enable);
+        digitalWrite(ledPins[10], enablepin);
     }
     else if(timeToDisplay >= 55 && timeToDisplay < 60)
     {
-        digitalWrite(ledPins[11], enable);
+        digitalWrite(ledPins[11], enablepin);
     }
     else
     {
@@ -134,6 +134,7 @@ void ClockLeds::PowerOnAllLeds()
 // Power ON Sequence
 void ClockLeds::SequenceLeds(int timeDelayMs)
 {
+    PowerOffAllLeds();
     for(int i=0; i<12; i++)
     {
         digitalWrite(ledPins[i], 1);

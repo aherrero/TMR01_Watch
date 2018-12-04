@@ -39,12 +39,12 @@ const int WATCH_MODE_SET_MIN = 2;
 MCP7940_Class MCP7940;
 ClockLeds clockLeds(ALL_LEDS_PIN);
 
-int BORA_WATCH_MODE = WATCH_MODE_SET_HOUR;
+int BORA_WATCH_MODE = WATCH_MODE_TIME;
 
 DateTime time_now;
 
 // Button detection long press
-long longPressTime = 2000;
+long longPressTime = 1000;
 
 volatile int buttonPressed = 0;
 unsigned long startMillis = 0;
@@ -70,7 +70,7 @@ int calculateLongShortButton()
     }
     else
     {
-        if(diffMillis > 10)
+        if(diffMillis > 5)
         {
             if(diffMillis > longPressTime)
             {
@@ -136,11 +136,11 @@ void setup()
     }
 
     //MCP7940.adjust();   // Adjust time with the compilation time
-    MCP7940.adjust(DateTime(2000,1,1,0,0,0));   //Set a specific time
+    MCP7940.adjust(DateTime(2000,1,1,9,36,0));   //Set a specific time
     delay(1000);
 
     // Good configuration
-    clockLeds.SequenceLeds(20);
+    clockLeds.SequenceLeds(50);
 
     // Attach an interrupt to the ISR vector (long or short press)
     attachInterrupt(0, pin_ISR, CHANGE);
@@ -182,14 +182,14 @@ void loop()
             for(int i = 0; i < 3; i++)
             {
                 // blinking 1s, 3 times
-                clockLeds.DisplayHourBlinking(time_now.minute(), 500);
+                clockLeds.DisplayMinutesBlinking(time_now.minute(), 500);
 
                 // If the button continue pressed (after showing time at least once (1s after)
                 if(digitalRead(BUTTON_PIN) == HIGH)
                 {
                     // Set the hour
                     BORA_WATCH_MODE = WATCH_MODE_SET_HOUR;
-                    clockLeds.SequenceLeds(40);
+                    clockLeds.SequenceLeds(50);
 
                     calculateLongShortButton(); //Restart variables once unpressed
                     // Attach an interrupt to the ISR vector
@@ -203,12 +203,11 @@ void loop()
         case WATCH_MODE_SET_HOUR:
             // Clean Leds
             clockLeds.PowerOffAllLeds();
-            delay(50);
 
             // Get the hour
             time_now = MCP7940.now();
             //Normally minutes blink each 1 sec. IN setting time, the hours blink each 500ms
-            clockLeds.DisplayHourBlinking(time_now.hour(), 250);
+            clockLeds.DisplayHourBlinking(time_now.hour(), 100);
 
             // Read button status and long/short press
             resultLongPress = calculateLongShortButton();
@@ -223,32 +222,30 @@ void loop()
             {
                 // Set the minutes
                 BORA_WATCH_MODE = WATCH_MODE_SET_MIN;
-                clockLeds.SequenceLeds(40);
-                delay(100);
+                clockLeds.SequenceLeds(50);
+                calculateLongShortButton(); //Restart variables once unpressed
+
             }
 
-            calculateLongShortButton(); //Restart variables once unpressed
 
         break;
 
         case WATCH_MODE_SET_MIN:
             // Clean Leds
             clockLeds.PowerOffAllLeds();
-            delay(50);
 
             // Get the hour
             time_now = MCP7940.now();
             //Normally minutes blink each 1 sec. IN setting time, the minutes blink each 500ms
-            clockLeds.DisplayMinutesBlinking(time_now.minute(), 125);
+            clockLeds.DisplayMinutesBlinking(time_now.minute(), 50);
 
             // Read button status and long/short press
             resultLongPress = calculateLongShortButton();
             if(resultLongPress == SHORT_PRESSED)
             {
-                // +1 if we want to set the minutes one per once
                 // +5 if we set each 5 minutes and display each 5 minutes
                 DateTime newtime(time_now.year(),time_now.month(),time_now.day(),
-                                time_now.hour(),time_now.minute() + 1,time_now.second());
+                                time_now.hour(),time_now.minute() + 5,time_now.second());
 
                 MCP7940.adjust(newtime);   //Set a specific time
             }
@@ -256,13 +253,14 @@ void loop()
             {
                 // Come back show time
                 BORA_WATCH_MODE = WATCH_MODE_TIME;
-                clockLeds.SequenceLeds(20);
-                clockLeds.SequenceLeds(20);
-                delay(100);
+                clockLeds.SequenceLeds(25);
+                clockLeds.SequenceLeds(25);
+                calculateLongShortButton(); //Restart variables once unpressed
             }
 
-            calculateLongShortButton(); //Restart variables once unpressed
 
         break;
     }   //end switch
+
+    clockLeds.PowerOffAllLeds();
 }   //end loop

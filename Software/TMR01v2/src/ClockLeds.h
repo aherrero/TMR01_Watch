@@ -8,10 +8,10 @@ class ClockLeds
 public:
     ClockLeds(int *ledPins_);
 
-    int DisplayHourLed(int timeToDisplay, int enable = 1);
+    int DisplayHourLed(int timeToDisplay, int enablepin = 1);
     int DisplayHourBlinking(int timeToDisplay, int timeDelayMs);
 
-    int DisplayMinutesLed(int timeToDisplay, int enable = 1);
+    int DisplayMinutesLed(int timeToDisplay, int enablepin = 1);
     int DisplayMinutesBlinking(int timeToDisplay, int timeDelayMs);
 
     void PowerOnAllLeds();

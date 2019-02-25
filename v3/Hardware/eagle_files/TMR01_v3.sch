@@ -2311,6 +2311,30 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="-2.54" y1="3.556" x2="-2.921" y2="3.683" width="0.127" layer="51"/>
 <text x="-1.27" y="3.302" size="0.8128" layer="51" font="vector" ratio="15">Feet</text>
 </package>
+<package name="TACTILE_SWITCH_PTH_2_AHE">
+<description>&lt;h3&gt;Momentary Switch (Pushbutton) - SPST - PTH, 6.0mm Square&lt;/h3&gt;
+&lt;p&gt;Normally-open (NO) SPST momentary switches (buttons, pushbuttons).&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.omron.com/ecb/products/pdf/en-b3f.pdf"&gt;Datasheet&lt;/a&gt; (B3F-1000)&lt;/p&gt;</description>
+<wire x1="1.27" y1="1.016" x2="1.27" y2="2.54" width="0.2032" layer="51"/>
+<wire x1="1.27" y1="2.54" x2="0.762" y2="3.048" width="0.2032" layer="51"/>
+<wire x1="0.762" y1="-3.048" x2="1.27" y2="-2.54" width="0.2032" layer="51"/>
+<wire x1="1.27" y1="-2.54" x2="1.27" y2="-1.016" width="0.2032" layer="51"/>
+<wire x1="0.254" y1="3.048" x2="-0.254" y2="2.54" width="0.2032" layer="51"/>
+<wire x1="-0.254" y1="2.54" x2="-0.254" y2="1.016" width="0.2032" layer="51"/>
+<wire x1="0.254" y1="-3.048" x2="-0.254" y2="-2.54" width="0.2032" layer="51"/>
+<wire x1="-0.254" y1="-2.54" x2="-0.254" y2="-1.016" width="0.2032" layer="51"/>
+<wire x1="1.27" y1="0.998" x2="1.27" y2="-1.016" width="0.2032" layer="21"/>
+<wire x1="-0.254" y1="1.028" x2="-0.254" y2="-1.016" width="0.2032" layer="21"/>
+<wire x1="0.254" y1="1.27" x2="0.254" y2="0.508" width="0.2032" layer="51"/>
+<wire x1="0.254" y1="-0.508" x2="0.254" y2="-1.27" width="0.2032" layer="51"/>
+<wire x1="0.254" y1="0.508" x2="0.635" y2="-0.381" width="0.2032" layer="51"/>
+<pad name="1" x="-0.4572" y="2.2606" drill="1.016" diameter="1.8796"/>
+<pad name="2" x="-0.4572" y="-2.2606" drill="1.016" diameter="1.8796"/>
+<text x="0" y="3.302" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;Name</text>
+<text x="0" y="-3.175" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;Value</text>
+<wire x1="0.254" y1="-3.048" x2="0.762" y2="-3.048" width="0.2032" layer="51"/>
+<wire x1="0.254" y1="3.048" x2="0.762" y2="3.048" width="0.2032" layer="51"/>
+</package>
 </packages>
 <symbols>
 <symbol name="SWITCH-MOMENTARY-2">
@@ -2514,6 +2538,15 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 </technology>
 </technologies>
 </device>
+<device name="" package="TACTILE_SWITCH_PTH_2_AHE">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
 </devices>
 </deviceset>
 </devicesets>
@@ -2566,7 +2599,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="SUPPLY1" library="SparkFun-PowerSymbols" deviceset="VCC" device=""/>
 <part name="C1" library="Perfect_0402" deviceset="CAP_0402" device="" value="100nF"/>
 <part name="R5" library="Perfect_0402" deviceset="RES_0402" device="" value="10k"/>
-<part name="S1" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-5.2MM"/>
+<part name="S1" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device=""/>
+<part name="TP3" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4"/>
+<part name="TP4" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4"/>
 </parts>
 <sheets>
 <sheet>
@@ -2709,6 +2744,12 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 </instance>
 <instance part="S1" gate="G$1" x="83.82" y="124.46" smashed="yes">
 <attribute name="NAME" x="83.82" y="125.984" size="1.778" layer="95" font="vector" align="bottom-center"/>
+</instance>
+<instance part="TP3" gate="G$1" x="104.14" y="149.86" smashed="yes" rot="R180">
+<attribute name="NAME" x="106.68" y="149.86" size="1.778" layer="95" font="vector" rot="R180"/>
+</instance>
+<instance part="TP4" gate="G$1" x="104.14" y="144.78" smashed="yes" rot="R180">
+<attribute name="NAME" x="106.68" y="144.78" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -2862,12 +2903,22 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="177.8" y1="139.7" x2="185.42" y2="139.7" width="0.1524" layer="91"/>
 <label x="182.88" y="139.7" size="1.778" layer="95"/>
 </segment>
+<segment>
+<wire x1="104.14" y1="149.86" x2="111.76" y2="149.86" width="0.1524" layer="91"/>
+<label x="109.22" y="149.86" size="1.778" layer="95"/>
+<pinref part="TP3" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="TX" class="0">
 <segment>
 <pinref part="U1" gate="U1" pin="PD1(TXD)"/>
 <wire x1="177.8" y1="137.16" x2="185.42" y2="137.16" width="0.1524" layer="91"/>
 <label x="182.88" y="137.16" size="1.778" layer="95"/>
+</segment>
+<segment>
+<wire x1="104.14" y1="144.78" x2="111.76" y2="144.78" width="0.1524" layer="91"/>
+<label x="109.22" y="144.78" size="1.778" layer="95"/>
+<pinref part="TP4" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
@@ -3069,25 +3120,25 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <label x="182.88" y="152.4" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="G$1" pin="SCL"/>
-<wire x1="170.18" y1="73.66" x2="180.34" y2="73.66" width="0.1524" layer="91"/>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="180.34" y1="73.66" x2="180.34" y2="78.74" width="0.1524" layer="91"/>
-<label x="172.72" y="73.66" size="1.778" layer="95"/>
-</segment>
-</net>
-<net name="SCL" class="0">
-<segment>
 <wire x1="170.18" y1="71.12" x2="187.96" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="187.96" y1="71.12" x2="187.96" y2="78.74" width="0.1524" layer="91"/>
 <label x="172.72" y="71.12" size="1.778" layer="95"/>
 <pinref part="IC1" gate="G$1" pin="SDA"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 </segment>
+</net>
+<net name="SCL" class="0">
 <segment>
 <pinref part="U1" gate="U1" pin="PC5(ADC5/SCL)"/>
 <wire x1="177.8" y1="149.86" x2="185.42" y2="149.86" width="0.1524" layer="91"/>
 <label x="182.88" y="149.86" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="IC1" gate="G$1" pin="SCL"/>
+<wire x1="170.18" y1="73.66" x2="180.34" y2="73.66" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="180.34" y1="73.66" x2="180.34" y2="78.74" width="0.1524" layer="91"/>
+<label x="172.72" y="73.66" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$3" class="0">

@@ -2600,8 +2600,8 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="C1" library="Perfect_0402" deviceset="CAP_0402" device="" value="100nF"/>
 <part name="R5" library="Perfect_0402" deviceset="RES_0402" device="" value="10k"/>
 <part name="S1" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device=""/>
-<part name="TP1" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3"/>
-<part name="TP2" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3"/>
+<part name="TP3" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4"/>
+<part name="TP4" library="SparkFun-Connectors" deviceset="TEST-POINT" device="3X4"/>
 </parts>
 <sheets>
 <sheet>
@@ -2745,10 +2745,10 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <instance part="S1" gate="G$1" x="83.82" y="124.46" smashed="yes">
 <attribute name="NAME" x="83.82" y="125.984" size="1.778" layer="95" font="vector" align="bottom-center"/>
 </instance>
-<instance part="TP1" gate="G$1" x="104.14" y="149.86" smashed="yes" rot="R180">
+<instance part="TP3" gate="G$1" x="104.14" y="149.86" smashed="yes" rot="R180">
 <attribute name="NAME" x="106.68" y="149.86" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
-<instance part="TP2" gate="G$1" x="104.14" y="144.78" smashed="yes" rot="R180">
+<instance part="TP4" gate="G$1" x="104.14" y="144.78" smashed="yes" rot="R180">
 <attribute name="NAME" x="106.68" y="144.78" size="1.778" layer="95" font="vector" rot="R180"/>
 </instance>
 </instances>
@@ -2904,9 +2904,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <label x="182.88" y="139.7" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="TP1" gate="G$1" pin="1"/>
 <wire x1="104.14" y1="149.86" x2="111.76" y2="149.86" width="0.1524" layer="91"/>
 <label x="109.22" y="149.86" size="1.778" layer="95"/>
+<pinref part="TP3" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="TX" class="0">
@@ -2916,9 +2916,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <label x="182.88" y="137.16" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="TP2" gate="G$1" pin="1"/>
 <wire x1="104.14" y1="144.78" x2="111.76" y2="144.78" width="0.1524" layer="91"/>
 <label x="109.22" y="144.78" size="1.778" layer="95"/>
+<pinref part="TP4" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="MOSI" class="0">
